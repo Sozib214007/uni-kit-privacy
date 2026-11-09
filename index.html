@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniKit Privacy Policy</title>
+  <meta name="description" content="Privacy policy for UniKit, the student toolkit app. What the app stores on your device, what it never collects, and how to delete your data.">
+  <meta name="theme-color" content="#173B67">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Crect width='1024' height='1024' rx='230' fill='%23173B67'/%3E%3Cg transform='translate(512 512) scale(1.3) translate(-512 -512) translate(0 -28)'%3E%3Cpath d='M 332 380 V 600 Q 332 700 432 700 H 592 Q 692 700 692 600 V 380' fill='none' stroke='white' stroke-width='92' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='400' y='398' width='100' height='100' rx='26' fill='%238FB4FF'/%3E%3Crect x='524' y='398' width='100' height='100' rx='26' fill='%237BE0C3'/%3E%3Crect x='400' y='522' width='100' height='100' rx='26' fill='%23FFD580'/%3E%3Crect x='524' y='522' width='100' height='100' rx='26' fill='%23C7A6F7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #173B67;
+      --teal: #287D78;
+      --gold: #FFD580;
+      --bg: #F5F7FB;
+      --surface: #FFFFFF;
+      --ink: #1B2A3C;
+      --muted: #586878;
+      --line: #DCE3EC;
+      --accent: #173B67;
+      --mint: #E6F2F0;
+      --link: #1F6C8C;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E1A2A;
+        --surface: #15263A;
+        --ink: #E7EDF4;
+        --muted: #A3B3C4;
+        --line: #27394E;
+        --accent: #9CC7FF;
+        --mint: #12363A;
+        --link: #8EC5E6;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: auto; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(135deg, #173B67 0%, #287D78 100%);
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .hero::before { width: 420px; height: 420px; right: -120px; top: -170px; opacity: .06; }
+    .hero::after  { width: 300px; height: 300px; left: -110px; bottom: -180px; opacity: .05; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 44px 24px 60px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .brand svg { width: 44px; height: 44px; border-radius: 12px; flex: none; }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5.2vw, 3.1rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .lede {
+      max-width: 34em;
+      margin: 0 0 22px;
+      font-size: 1.06rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, .9);
+    }
+    .meta { margin: 0; font-size: .88rem; line-height: 1.6; color: rgba(255, 255, 255, .78); }
+    .meta span { display: block; }
+
+    .hero-art { width: 100%; max-width: 430px; height: auto; justify-self: end; }
+    .hero-art text { font-family: inherit; }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 56px;
+      align-items: start;
+    }
+
+    .toc { position: sticky; top: 24px; font-size: .9rem; }
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+    .toc li { margin: 0; }
+    .toc a {
+      display: block;
+      padding: 5px 0 5px 16px;
+      margin-left: -2px;
+      border-left: 2px solid transparent;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 1.45;
+    }
+    .toc a:hover { color: var(--accent); border-left-color: var(--teal); }
+
+    article { max-width: 700px; }
+
+    section { padding: 36px 0; border-top: 1px solid var(--line); }
+    section:first-of-type { padding-top: 0; border-top: 0; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      scroll-margin-top: 24px;
+    }
+    h3 { margin: 22px 0 8px; font-size: 1rem; font-weight: 600; color: var(--ink); }
+
+    p { margin: 0 0 14px; }
+    ul, ol { margin: 0 0 14px; padding-left: 1.25rem; }
+    li { margin-bottom: 8px; }
+    strong { font-weight: 600; }
+
+    /* ---------- Quick answers ---------- */
+    .qa {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 32px;
+      margin: 0;
+    }
+    .qa > div { border-left: 3px solid var(--teal); padding-left: 16px; }
+    .qa dt { margin-bottom: 4px; font-weight: 600; font-size: .95rem; }
+    .qa dd { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.6; }
+
+    /* ---------- Table ---------- */
+    .table-wrap {
+      margin: 18px 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; line-height: 1.55; }
+    th, td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    th { font-size: .86rem; font-weight: 600; background: var(--mint); }
+    tbody tr:last-child td { border-bottom: 0; }
+    td:first-child { width: 24%; font-weight: 600; }
+
+    .note { color: var(--muted); font-size: .93rem; }
+
+    /* ---------- Deletion panel ---------- */
+    .callout {
+      margin: 36px 0;
+      padding: 28px 28px 14px;
+      border: 0;
+      border-left: 5px solid var(--teal);
+      border-radius: 14px;
+      background: var(--mint);
+    }
+    .callout h3:first-of-type { margin-top: 18px; }
+
+    footer {
+      padding: 28px 24px 44px;
+      text-align: center;
+      font-size: .85rem;
+      line-height: 1.7;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    footer p { margin: 0; }
+
+    /* ---------- Small screens ---------- */
+    @media (max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; padding: 32px 20px 44px; gap: 24px; }
+      .hero-art { max-width: 300px; justify-self: start; }
+      .layout { grid-template-columns: 1fr; gap: 32px; padding: 32px 20px 56px; }
+      .toc { position: static; }
+      .toc ol { columns: 2; column-gap: 24px; }
+      .qa { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .toc ol { columns: 1; }
+      thead { display: none; }
+      table, tbody, tr, td { display: block; width: 100%; }
+      tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+      tbody tr:last-child { border-bottom: 0; }
+      td { padding: 3px 16px; border: 0; }
+      td:first-child { width: 100%; padding-top: 6px; }
+      td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        margin-top: 8px;
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .callout { padding: 22px 20px 10px; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      body { background: #fff; color: #000; }
+      .hero { background: #fff; color: #000; }
+      .hero::before, .hero::after, .hero-art, .toc { display: none; }
+      .lede, .meta { color: #333; }
+      .layout { display: block; padding: 0 24px; }
+      h2 { color: #000; }
+      .callout { background: #f1f1f1; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 1024 1024" role="img" aria-label="UniKit logo">
+            <defs>
+              <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#173B67"/>
+                <stop offset="1" stop-color="#287D78"/>
+              </linearGradient>
+            </defs>
+            <rect width="1024" height="1024" fill="url(#logo-bg)"/>
+            <g transform="translate(512 512) scale(1.3) translate(-512 -512) translate(0 -28)">
+              <path d="M 332 380 V 600 Q 332 700 432 700 H 592 Q 692 700 692 600 V 380" fill="none" stroke="#fff" stroke-width="92" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="400" y="398" width="100" height="100" rx="26" fill="#8FB4FF"/>
+              <rect x="524" y="398" width="100" height="100" rx="26" fill="#7BE0C3"/>
+              <rect x="400" y="522" width="100" height="100" rx="26" fill="#FFD580"/>
+              <rect x="524" y="522" width="100" height="100" rx="26" fill="#C7A6F7"/>
+            </g>
+          </svg>
+          <span>UniKit</span>
+        </div>
+
+        <h1>Your data stays on your phone.</h1>
+        <p class="lede">This is the privacy policy for UniKit, a free student toolkit app. UniKit works on your device, needs no account, and does not collect, sell or share your personal information.</p>
+        <p class="meta">
+          <span>Last updated: November 9, 2026</span>
+          <span>Applies to: UniKit for Android (com.sozibmia.unikit)</span>
+        </p>
+      </div>
+
+      <svg class="hero-art" viewBox="0 0 380 250" role="img" aria-label="A phone holding your UniKit data. The connection to the cloud is blocked, because nothing is uploaded.">
+        <rect x="36" y="18" width="124" height="196" rx="24" fill="#ffffff"/>
+        <rect x="78" y="30" width="40" height="6" rx="3" fill="#173B67" opacity=".2"/>
+        <rect x="57" y="66" width="36" height="36" rx="10" fill="#8FB4FF"/>
+        <rect x="103" y="66" width="36" height="36" rx="10" fill="#7BE0C3"/>
+        <rect x="57" y="112" width="36" height="36" rx="10" fill="#FFD580"/>
+        <rect x="103" y="112" width="36" height="36" rx="10" fill="#C7A6F7"/>
+        <path d="M 91 164 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke="#287D78" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="86" y="164" width="24" height="18" rx="4" fill="#287D78"/>
+
+        <line x1="168" y1="116" x2="240" y2="116" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <circle cx="202" cy="116" r="15" fill="#FFD580"/>
+        <path d="M195 109 L209 123 M209 109 L195 123" stroke="#173B67" stroke-width="3.2" stroke-linecap="round"/>
+
+        <g opacity=".24" fill="#fff">
+          <circle cx="270" cy="122" r="22"/>
+          <circle cx="296" cy="106" r="28"/>
+          <circle cx="322" cy="124" r="20"/>
+          <rect x="270" y="122" width="52" height="22"/>
+        </g>
+
+        <text x="98" y="238" text-anchor="middle" font-size="13" fill="#fff" fill-opacity=".9">Your phone</text>
+        <text x="296" y="172" text-anchor="middle" font-size="13" fill="#fff" fill-opacity=".9">No upload</text>
+      </svg>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#quick-answers">Quick answers</a></li>
+        <li><a href="#about">About this policy</a></li>
+        <li><a href="#data-stored">Information UniKit stores</a></li>
+        <li><a href="#not-collected">What UniKit does not collect</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#sharing">Sharing and third parties</a></li>
+        <li><a href="#storage">Storage, security and backups</a></li>
+        <li><a href="#delete-data">Deleting your data</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#not-official">Not an official DUET app</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <article>
+
+        <section id="quick-answers">
+          <h2>Quick answers</h2>
+          <dl class="qa">
+            <div>
+              <dt>Do I need an account?</dt>
+              <dd>No. Every feature works without signing in.</dd>
+            </div>
+            <div>
+              <dt>Is my information uploaded?</dt>
+              <dd>No. Your cover pages, CGPA, tasks and routine are saved on your phone only.</dd>
+            </div>
+            <div>
+              <dt>Are there ads or tracking?</dt>
+              <dd>No. UniKit has no ads, analytics or crash-reporting tools.</dd>
+            </div>
+            <div>
+              <dt>How do I delete my data?</dt>
+              <dd>Delete items inside the app, or clear UniKit's storage in Android settings. See <a href="#delete-data">Deleting your data</a>.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="about">
+          <h2>About this policy</h2>
+          <p>UniKit is a free toolkit for university students, made for DUET students by an independent developer. It helps you create cover pages for lab reports and assignments, calculate your CGPA, track tasks and deadlines, keep a class routine, and get reminders.</p>
+          <p>This policy explains what information the app handles, where it is kept, and the choices you have. In this policy, "we" means the developer of UniKit. You can reach us using the details in <a href="#contact">Contact</a>.</p>
+        </section>
+
+        <section id="data-stored">
+          <h2>Information UniKit stores</h2>
+          <p>UniKit saves the details you type into it so the features can work. All of it stays in UniKit's private storage on your phone.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">What</th>
+                  <th scope="col">Examples</th>
+                  <th scope="col">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cover page details</td>
+                  <td data-label="Examples">Your name, student ID, section, year and semester, department, course code and title, dates, document name and number, teacher names and designations.</td>
+                  <td data-label="Why">To fill in a cover page and create the PDF.</td>
+                </tr>
+                <tr>
+                  <td>Saved PDFs and History</td>
+                  <td data-label="Examples">The PDF files you create, plus a list with each title, type and date.</td>
+                  <td data-label="Why">To show them in History so you can open, share or delete them.</td>
+                </tr>
+                <tr>
+                  <td>CGPA data</td>
+                  <td data-label="Examples">Semesters, subjects, credits, grades and any previous CGPA you enter.</td>
+                  <td data-label="Why">To work out your semester GPA and CGPA.</td>
+                </tr>
+                <tr>
+                  <td>Tasks</td>
+                  <td data-label="Examples">Task type (CT, lab, assignment and so on), course code, title, due date, notes and whether it is done.</td>
+                  <td data-label="Why">To list your tasks and schedule reminders.</td>
+                </tr>
+                <tr>
+                  <td>Class routine</td>
+                  <td data-label="Examples">Days, class times, class or lab names and room numbers.</td>
+                  <td data-label="Why">To show your classes and today's classes on the Home screen.</td>
+                </tr>
+                <tr>
+                  <td>App settings</td>
+                  <td data-label="Examples">Which Quick Actions you chose to show.</td>
+                  <td data-label="Why">To remember your layout.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="note">This information is not sent to us or to any server. We cannot see it.</p>
+        </section>
+
+        <section id="not-collected">
+          <h2>What UniKit does not collect</h2>
+          <p>UniKit does not collect, and does not send anywhere:</p>
+          <ul>
+            <li>account details, email address or phone number</li>
+            <li>your location</li>
+            <li>your contacts, messages or call history</li>
+            <li>advertising IDs or other identifiers used for tracking</li>
+            <li>usage analytics or crash reports</li>
+          </ul>
+          <p>UniKit does not show ads and does not contain advertising or analytics tools. We do not sell your data.</p>
+        </section>
+
+        <section id="permissions">
+          <h2>Permissions</h2>
+          <h3>Notifications</h3>
+          <p>UniKit asks to show notifications so it can remind you about task deadlines. Reminders are scheduled on your phone and are not sent through any server. You can turn them off at any time in Android settings.</p>
+          <h3>Start after your phone restarts</h3>
+          <p>Android clears scheduled reminders when a phone restarts. This permission lets UniKit set your reminders again after a restart.</p>
+          <h3>Photos and files</h3>
+          <p>UniKit does not need broad access to your photos or storage. If a feature asks you to pick a photo or file, Android's picker gives UniKit access only to the item you choose.</p>
+        </section>
+
+        <section id="sharing">
+          <h2>Sharing and third parties</h2>
+          <p>We do not sell, rent or share your information. UniKit has no servers that receive your data.</p>
+          <p><strong>When you share a file.</strong> If you share, print or open a PDF, Android hands it to the app or service you pick, such as email, a messaging app or a printing service. That app or service handles it under its own privacy policy.</p>
+          <p><strong>Google Play.</strong> If you install UniKit from Google Play, Google handles the installation under its own privacy policy. Google may give developers anonymous, combined statistics such as install counts and crash reports. These do not identify you.</p>
+        </section>
+
+        <section id="storage">
+          <h2>Storage, security and backups</h2>
+          <p><strong>Where it is kept.</strong> Your data is stored in UniKit's private storage on your phone. Android's app sandbox keeps other apps from reading it.</p>
+          <p><strong>How long.</strong> It stays until you delete it or uninstall UniKit. Because we do not hold a copy, we cannot restore your data if you lose your phone or clear UniKit's storage. Share or save your PDFs if you want extra copies.</p>
+          <p><strong>Android backup.</strong> If backup is turned on for your phone, Android may back up UniKit's data to your Google account and restore it on a new phone. Android and Google manage this, and you control it in your phone's backup settings.</p>
+        </section>
+
+        <section id="delete-data" class="callout">
+          <h2>Deleting your data</h2>
+          <p>UniKit has no accounts and keeps nothing on our servers, so there is no account to close and nothing for us to erase. You control your data directly on your phone.</p>
+
+          <h3>Delete specific items in the app</h3>
+          <ul>
+            <li><strong>Tasks:</strong> open Tasks, tap the menu on a task and choose Delete.</li>
+            <li><strong>Classes:</strong> open Class Routine, tap the menu on a class and choose Delete, or use Clear Whole Routine.</li>
+            <li><strong>CGPA:</strong> open CGPA Calculator and use Reset All Data, or delete a single semester.</li>
+            <li><strong>PDFs:</strong> open History and delete the PDFs you no longer want.</li>
+          </ul>
+
+          <h3>Delete everything</h3>
+          <ol>
+            <li>Open your phone's Settings and go to Apps.</li>
+            <li>Choose UniKit, then Storage.</li>
+            <li>Tap Clear data. Menu names vary a little between phones.</li>
+          </ol>
+          <p>Uninstalling UniKit also removes everything the app stored, including saved PDFs and scheduled reminders.</p>
+
+          <h3>Turn off reminders only</h3>
+          <p>In Settings, go to Apps, choose UniKit, then Notifications, and switch them off.</p>
+
+          <h3>Files you saved or sent elsewhere</h3>
+          <p>A PDF you saved outside UniKit or sent to someone is a separate copy. Delete it from wherever you saved or sent it.</p>
+
+          <h3>If accounts are added later</h3>
+          <p>If a future version adds accounts, we will update this policy and explain how to delete your account and its data before that feature is released.</p>
+        </section>
+
+        <section id="children">
+          <h2>Children</h2>
+          <p>UniKit is made for university students and is not directed to children under 13. We do not knowingly collect personal information from anyone. Since the app keeps your data only on your device, no child's information reaches us.</p>
+        </section>
+
+        <section id="not-official">
+          <h2>Not an official DUET app</h2>
+          <p>UniKit is an independent student project made for DUET students. It is not an official app of Dhaka University of Engineering &amp; Technology (DUET) and is not endorsed by the university. The university's name is used only to say who the app is made for.</p>
+        </section>
+
+        <section id="changes">
+          <h2>Changes to this policy</h2>
+          <p>We will update this page and the date at the top when UniKit's data practices change, for example if we add accounts, cloud sync, or online features such as notices loaded from the internet. If a change affects how your data is handled, we will explain it before the feature is released.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>For privacy questions or requests, email <a href="mailto:mdsozib789@gmail.com?subject=UniKit%20privacy">mdsozib789@gmail.com</a>. Please put "UniKit privacy" in the subject line so we can find your message.</p>
+        </section>
+
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>UniKit: Everything a Student Needs.</p>
+    <p>An independent student project. Not an official app of DUET.</p>
+  </footer>
+
+</body>
+</html>
